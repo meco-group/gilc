@@ -3,6 +3,9 @@ gILC was originally developed by Marnix Volckaert in 2012. It is currently maint
 
 Make sure to get [CasADi](http://casadi.org/) (at least v3.0) before using gILC.
 
+# TODOs
+  - [ ] Port gILC to Matlab
+
 # Notes
 The originally published software (v1.3) can be found [here](https://set.kuleuven.be/optec/Software/gilc-generic-iterative-learning-control-for-nonlinear-systems). In case this website is not accessible, the content is packed in the *mirror-v1.3* folder.
 
