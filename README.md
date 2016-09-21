@@ -1,4 +1,11 @@
 # gILC
+gILC is open source software, written in Python, for a generic approach to iterative learning control (ILC) for nonlinear
+systems. Iterative learning control is a strategy for the open loop control of dynamic systems that need to perform a
+given task repeatedly. Its aim is to reject repeating disturbances and improve tracking control by using information
+about the tracking performance of the previous trial. gILC allows the user to tune the algorithm in a wide range of
+settings with minimal coding effort. It has excellent computational efficiency, even for long control tasks, and therefore
+reduces the required calculation time between trials.
+
 gILC was originally developed by Marnix Volckaert in 2012. It is currently maintained and adapted for new research topics by Armin Steinhauser within the [MECO research team](https://www.mech.kuleuven.be/en/pma/research/meco/).
 
 Make sure to get [CasADi](http://casadi.org/) (at least v3.0) before using gILC.
