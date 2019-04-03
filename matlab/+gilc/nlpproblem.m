@@ -152,7 +152,7 @@ classdef nlpproblem
       %------------------------------
       % Define residual vector
       %-----------------------
-      hfcn_map = this.hfcn.map('hfcn_map','serial',this.N);
+      hfcn_map = this.hfcn.map('hfcn_map','serial',this.N,[],[]);
       ybar = (this.r - hfcn_map(x,uc,this.w)).';
 
       %-----------------------
@@ -161,14 +161,14 @@ classdef nlpproblem
       J = (ybar.') * (this.Qy.*ybar);    % Residual of main tracking error
       %------
       if this.Minimizedoutputs
-        hzmfcn_map = this.hzmfcn.map('hzmfcn_map','serial',this.N);
+        hzmfcn_map = this.hzmfcn.map('hzmfcn_map','serial',this.N,[],[]);
         zmbar = (this.rz - hfcn_map(x,uc,this.w)).';
         J = J + (zmbar.') * (this.Qz * zmbar);
       end
 
       % Constraint function
       %--------------------
-      xkp1_map = this.ffcn.map('xkp1_map','serial',this.N);
+      xkp1_map = this.ffcn.map('xkp1_map','serial',this.N,[],[]);
       xkp1_all = xkp1_map(x,uc,this.w);
       xk_gaps = (x(:,2:this.N)-xkp1_all(:,1:this.N-1));
       g = xk_gaps(:);                          % add the constraint
@@ -188,7 +188,7 @@ classdef nlpproblem
 
       %--- Constrained outputs ---
       if this.Constrainedoutputs
-        hzcfcn_map = this.hzcfcn.map('hzcfcn_map','serial',this.N);
+        hzcfcn_map = this.hzcfcn.map('hzcfcn_map','serial',this.N,[],[]);
         g = vertcat(g, hzcfcn_map(x,uc,this.w).');
         gmin = vertcat(gmin, this.zmin.');
         gmax = vertcat(gmax, this.zmax.');
